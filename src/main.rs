@@ -5,8 +5,8 @@ use blenvy::{BlenvyPlugin, BlueprintInfo, GameWorldTag, HideUntilReady, SpawnBlu
 
 mod camera;
 mod light;
-mod ui;
 mod physics;
+mod ui;
 
 static APP_NAME: &str = "Bevy Jam #5";
 
