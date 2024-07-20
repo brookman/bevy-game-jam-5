@@ -1,6 +1,6 @@
 use bevy::prelude::*;
-use blenvy::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
+use blenvy::*;
 
 mod camera;
 mod light;
