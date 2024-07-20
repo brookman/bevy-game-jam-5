@@ -3,7 +3,6 @@ use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 mod camera;
 mod light;
-mod soldier;
 mod ui;
 
 static APP_NAME: &str = "Bevy Jam #5";
@@ -41,7 +40,6 @@ fn main() {
         ui::Plugin,
         camera::Plugin,
         light::Plugin,
-        soldier::Plugin,
     ));
 
     app.run();
