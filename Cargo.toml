@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "bevy-texture-coloring-example"
+name = "bevy-game-jam-5"
 path = "src/main.rs"
 
 [workspace]
