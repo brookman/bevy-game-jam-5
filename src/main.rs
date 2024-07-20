@@ -63,7 +63,7 @@ fn main() {
     app.register_type::<MyHealth>();
     app.add_systems(Startup, setup_game);
     app.insert_resource(Msaa::Off); // Disable MSAA because it's incompatible with SSAO
-    app.insert_resource(DefaultOpaqueRendererMethod::deferred());
+    // app.insert_resource(DefaultOpaqueRendererMethod::deferred());
     app.run();
 }
 
