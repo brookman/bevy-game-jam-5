@@ -1,9 +1,8 @@
 use bevy::prelude::*;
-// use bevy::render::primitives::Aabb;
 use bevy_rapier3d::geometry::Collider as RapierCollider;
 use bevy_rapier3d::prelude::{ActiveCollisionTypes, ActiveEvents, ComputedColliderShape};
 
-use super::utils::*;
+use crate::physics::utils::MeshExt;
 
 #[derive(Component, Reflect, Default, Debug)]
 #[reflect(Component)]
@@ -26,7 +25,9 @@ pub enum AutoAABBCollider {
 
 // replaces all physics stand-ins with the actual rapier types
 #[allow(clippy::type_complexity)]
-pub(crate) fn physics_replace_proxies(
+#[allow(clippy::needless_pass_by_value)]
+#[allow(clippy::unwrap_used)]
+pub fn physics_replace_proxies(
     meshes: Res<Assets<Mesh>>,
     mesh_handles: Query<&Handle<Mesh>>,
     mut proxy_colliders: Query<
@@ -38,7 +39,7 @@ pub(crate) fn physics_replace_proxies(
 
     mut commands: Commands,
 ) {
-    for proxy_colider in proxy_colliders.iter_mut() {
+    for proxy_colider in &mut proxy_colliders {
         let (entity, collider_proxy, name, mut visibility) = proxy_colider;
         // we hide the collider meshes: perhaps they should be removed altogether once processed ?
         if name.ends_with("_collider") || name.ends_with("_sensor") {

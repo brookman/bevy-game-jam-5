@@ -1,11 +1,11 @@
 use bevy::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
-use bevy_rapier3d::prelude::*;
 use blenvy::{BlenvyPlugin, BlueprintInfo, GameWorldTag, HideUntilReady, SpawnBlueprint};
 
 mod camera;
 mod light;
 mod physics;
+mod state;
 mod ui;
 
 static APP_NAME: &str = "Bevy Jam #5";
@@ -53,6 +53,7 @@ fn main() {
         default_plugins,
         blenvy_plugin,
         WorldInspectorPlugin::new(),
+        state::Plugin,
         ui::Plugin,
         camera::Plugin,
         physics::Plugin,
