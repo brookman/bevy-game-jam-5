@@ -25,10 +25,10 @@ opt-level = 1
 opt-level = 3
 
 [dependencies]
-bevy = "0.13.2"
-bevy-inspector-egui = "0.24.0"
-bevy_egui = "0.27.0"
-bevy_panorbit_camera = { version = "0.18.1", features = ["bevy_egui"] }
+bevy = "0.14.0"
+bevy-inspector-egui = "0.25.1"
+bevy_egui = "0.28.0"
+bevy_panorbit_camera = { version = "0.19.1", features = ["bevy_egui"] }
 bevy-scene-hook = "10.0.0"
 
 [profile.release]
