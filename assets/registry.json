@@ -3580,6 +3580,84 @@
       "type": "object",
       "typeInfo": "Struct"
     },
+    "bevy_game_jam_5::physics::physics_replace_proxies::AutoAABBCollider": {
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_game_jam_5::physics::physics_replace_proxies::AutoAABBCollider",
+      "oneOf": [
+        "Cuboid",
+        "Ball",
+        "Capsule"
+      ],
+      "short_name": "AutoAABBCollider",
+      "type": "string",
+      "typeInfo": "Enum"
+    },
+    "bevy_game_jam_5::physics::physics_replace_proxies::Collider": {
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_game_jam_5::physics::physics_replace_proxies::Collider",
+      "oneOf": [
+        {
+          "items": false,
+          "long_name": "Ball",
+          "prefixItems": [
+            {
+              "type": {
+                "$ref": "#/$defs/f32"
+              }
+            }
+          ],
+          "short_name": "Ball",
+          "type": "array",
+          "typeInfo": "Tuple"
+        },
+        {
+          "items": false,
+          "long_name": "Cuboid",
+          "prefixItems": [
+            {
+              "type": {
+                "$ref": "#/$defs/glam::Vec3"
+              }
+            }
+          ],
+          "short_name": "Cuboid",
+          "type": "array",
+          "typeInfo": "Tuple"
+        },
+        {
+          "items": false,
+          "long_name": "Capsule",
+          "prefixItems": [
+            {
+              "type": {
+                "$ref": "#/$defs/glam::Vec3"
+              }
+            },
+            {
+              "type": {
+                "$ref": "#/$defs/glam::Vec3"
+              }
+            },
+            {
+              "type": {
+                "$ref": "#/$defs/f32"
+              }
+            }
+          ],
+          "short_name": "Capsule",
+          "type": "array",
+          "typeInfo": "Tuple"
+        },
+        {
+          "long_name": "Mesh"
+        }
+      ],
+      "short_name": "Collider",
+      "type": "object",
+      "typeInfo": "Enum"
+    },
     "bevy_gizmos::aabb::AabbGizmoConfigGroup": {
       "additionalProperties": false,
       "isComponent": false,
@@ -7751,6 +7829,523 @@
       "type": "object",
       "typeInfo": "Struct"
     },
+    "bevy_rapier3d::dynamics::CoefficientCombineRule": {
+      "isComponent": false,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::CoefficientCombineRule",
+      "oneOf": [
+        "Average",
+        "Min",
+        "Multiply",
+        "Max"
+      ],
+      "short_name": "CoefficientCombineRule",
+      "type": "string",
+      "typeInfo": "Enum"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::AdditionalMassProperties": {
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::AdditionalMassProperties",
+      "oneOf": [
+        {
+          "items": false,
+          "long_name": "Mass",
+          "prefixItems": [
+            {
+              "type": {
+                "$ref": "#/$defs/f32"
+              }
+            }
+          ],
+          "short_name": "Mass",
+          "type": "array",
+          "typeInfo": "Tuple"
+        },
+        {
+          "items": false,
+          "long_name": "MassProperties",
+          "prefixItems": [
+            {
+              "type": {
+                "$ref": "#/$defs/bevy_rapier3d::dynamics::rigid_body::MassProperties"
+              }
+            }
+          ],
+          "short_name": "MassProperties",
+          "type": "array",
+          "typeInfo": "Tuple"
+        }
+      ],
+      "short_name": "AdditionalMassProperties",
+      "type": "object",
+      "typeInfo": "Enum"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::Ccd": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::Ccd",
+      "properties": {
+        "enabled": {
+          "type": {
+            "$ref": "#/$defs/bool"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "short_name": "Ccd",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::Damping": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::Damping",
+      "properties": {
+        "angular_damping": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "linear_damping": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      },
+      "required": [
+        "linear_damping",
+        "angular_damping"
+      ],
+      "short_name": "Damping",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::Dominance": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::Dominance",
+      "properties": {
+        "groups": {
+          "type": {
+            "$ref": "#/$defs/i8"
+          }
+        }
+      },
+      "required": [
+        "groups"
+      ],
+      "short_name": "Dominance",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::ExternalForce": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::ExternalForce",
+      "properties": {
+        "force": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "torque": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        }
+      },
+      "required": [
+        "force",
+        "torque"
+      ],
+      "short_name": "ExternalForce",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::ExternalImpulse": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::ExternalImpulse",
+      "properties": {
+        "impulse": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "torque_impulse": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        }
+      },
+      "required": [
+        "impulse",
+        "torque_impulse"
+      ],
+      "short_name": "ExternalImpulse",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::GravityScale": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::GravityScale",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      ],
+      "short_name": "GravityScale",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::LockedAxes": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::LockedAxes",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/u8"
+          }
+        }
+      ],
+      "short_name": "LockedAxes",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::MassProperties": {
+      "additionalProperties": false,
+      "isComponent": false,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::MassProperties",
+      "properties": {
+        "local_center_of_mass": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "mass": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "principal_inertia": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "principal_inertia_local_frame": {
+          "type": {
+            "$ref": "#/$defs/glam::Quat"
+          }
+        }
+      },
+      "required": [
+        "local_center_of_mass",
+        "mass",
+        "principal_inertia_local_frame",
+        "principal_inertia"
+      ],
+      "short_name": "MassProperties",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::RigidBody": {
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::RigidBody",
+      "oneOf": [
+        "Dynamic",
+        "Fixed",
+        "KinematicPositionBased",
+        "KinematicVelocityBased"
+      ],
+      "short_name": "RigidBody",
+      "type": "string",
+      "typeInfo": "Enum"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::Sleeping": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::Sleeping",
+      "properties": {
+        "angular_threshold": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "normalized_linear_threshold": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "sleeping": {
+          "type": {
+            "$ref": "#/$defs/bool"
+          }
+        }
+      },
+      "required": [
+        "normalized_linear_threshold",
+        "angular_threshold",
+        "sleeping"
+      ],
+      "short_name": "Sleeping",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::SoftCcd": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::SoftCcd",
+      "properties": {
+        "prediction": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      },
+      "required": [
+        "prediction"
+      ],
+      "short_name": "SoftCcd",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::dynamics::rigid_body::Velocity": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::dynamics::rigid_body::Velocity",
+      "properties": {
+        "angvel": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        },
+        "linvel": {
+          "type": {
+            "$ref": "#/$defs/glam::Vec3"
+          }
+        }
+      },
+      "required": [
+        "linvel",
+        "angvel"
+      ],
+      "short_name": "Velocity",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::geometry::collider::CollidingEntities": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::geometry::collider::CollidingEntities",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/bevy_utils::hashbrown::HashSet<bevy_ecs::entity::Entity, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>"
+          }
+        }
+      ],
+      "short_name": "CollidingEntities",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::geometry::collider::CollisionGroups": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::geometry::collider::CollisionGroups",
+      "properties": {
+        "filters": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::geometry::collider::Group"
+          }
+        },
+        "memberships": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::geometry::collider::Group"
+          }
+        }
+      },
+      "required": [
+        "memberships",
+        "filters"
+      ],
+      "short_name": "CollisionGroups",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::geometry::collider::ContactForceEventThreshold": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::geometry::collider::ContactForceEventThreshold",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      ],
+      "short_name": "ContactForceEventThreshold",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::geometry::collider::ContactSkin": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::geometry::collider::ContactSkin",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        }
+      ],
+      "short_name": "ContactSkin",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::geometry::collider::Friction": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::geometry::collider::Friction",
+      "properties": {
+        "coefficient": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "combine_rule": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::dynamics::CoefficientCombineRule"
+          }
+        }
+      },
+      "required": [
+        "coefficient",
+        "combine_rule"
+      ],
+      "short_name": "Friction",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::geometry::collider::Group": {
+      "isComponent": true,
+      "isResource": false,
+      "items": false,
+      "long_name": "bevy_rapier3d::geometry::collider::Group",
+      "prefixItems": [
+        {
+          "type": {
+            "$ref": "#/$defs/u32"
+          }
+        }
+      ],
+      "short_name": "Group",
+      "type": "array",
+      "typeInfo": "TupleStruct"
+    },
+    "bevy_rapier3d::geometry::collider::Restitution": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::geometry::collider::Restitution",
+      "properties": {
+        "coefficient": {
+          "type": {
+            "$ref": "#/$defs/f32"
+          }
+        },
+        "combine_rule": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::dynamics::CoefficientCombineRule"
+          }
+        }
+      },
+      "required": [
+        "coefficient",
+        "combine_rule"
+      ],
+      "short_name": "Restitution",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::geometry::collider::Sensor": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::geometry::collider::Sensor",
+      "properties": {},
+      "required": [],
+      "short_name": "Sensor",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::geometry::collider::SolverGroups": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "bevy_rapier3d::geometry::collider::SolverGroups",
+      "properties": {
+        "filters": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::geometry::collider::Group"
+          }
+        },
+        "memberships": {
+          "type": {
+            "$ref": "#/$defs/bevy_rapier3d::geometry::collider::Group"
+          }
+        }
+      },
+      "required": [
+        "memberships",
+        "filters"
+      ],
+      "short_name": "SolverGroups",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "bevy_rapier3d::render::DebugRenderContext": {
+      "additionalProperties": false,
+      "isComponent": false,
+      "isResource": true,
+      "long_name": "bevy_rapier3d::render::DebugRenderContext",
+      "properties": {
+        "enabled": {
+          "type": {
+            "$ref": "#/$defs/bool"
+          }
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "short_name": "DebugRenderContext",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
     "bevy_render::alpha::AlphaMode": {
       "isComponent": false,
       "isResource": false,
@@ -11203,6 +11798,14 @@
           "$ref": "#/$defs/alloc::vec::Vec<alloc::string::String>"
         }
       }
+    },
+    "bevy_utils::hashbrown::HashSet<bevy_ecs::entity::Entity, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>": {
+      "isComponent": false,
+      "isResource": false,
+      "long_name": "bevy_utils::hashbrown::HashSet<bevy_ecs::entity::Entity, bevy_utils::hashbrown::hash_map::DefaultHashBuilder>",
+      "short_name": "HashSet<Entity, DefaultHashBuilder>",
+      "type": "object",
+      "typeInfo": "Value"
     },
     "bevy_window::cursor::CursorIcon": {
       "isComponent": false,
