@@ -1,3 +1,4 @@
+use bevy::pbr::DefaultOpaqueRendererMethod;
 use bevy::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use blenvy::{BlenvyPlugin, BlueprintInfo, GameWorldTag, HideUntilReady, SpawnBlueprint};
@@ -62,6 +63,7 @@ fn main() {
     app.register_type::<MyHealth>();
     app.add_systems(Startup, setup_game);
     app.insert_resource(Msaa::Off); // Disable MSAA because it's incompatible with SSAO
+    app.insert_resource(DefaultOpaqueRendererMethod::deferred());
     app.run();
 }
 

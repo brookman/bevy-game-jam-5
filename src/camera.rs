@@ -1,7 +1,7 @@
 use bevy::core_pipeline::bloom::BloomSettings;
 use bevy::core_pipeline::experimental::taa::{TemporalAntiAliasBundle, TemporalAntiAliasPlugin};
 use bevy::core_pipeline::tonemapping::Tonemapping;
-use bevy::pbr::ScreenSpaceAmbientOcclusionBundle;
+use bevy::pbr::{ScreenSpaceAmbientOcclusionBundle, ScreenSpaceReflectionsBundle};
 use bevy::prelude::*;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
@@ -48,5 +48,6 @@ fn spawn(mut commands: Commands) {
             },
         ))
         .insert(ScreenSpaceAmbientOcclusionBundle::default())
+        .insert(ScreenSpaceReflectionsBundle::default())
         .insert(TemporalAntiAliasBundle::default());
 }
