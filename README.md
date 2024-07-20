@@ -7,7 +7,7 @@
 
 # My game for the Bevy Jam #5
 
-This is my jet untitled entry for the [Bevy Jam #5](https://itch.io/jam/bevy-jam-5)
+This is my yet-untitled entry for the [Bevy Jam #5](https://itch.io/jam/bevy-jam-5)
 
 🚀 [Play the web version on GitHub](https://brookman.github.io/bevy-game-jam-5/) 🚀
 
