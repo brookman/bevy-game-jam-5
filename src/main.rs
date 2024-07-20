@@ -52,11 +52,12 @@ fn main() {
         blenvy_plugin,
         WorldInspectorPlugin::new(),
         ui::Plugin,
-        // camera::Plugin,
-        light::Plugin,
+        camera::Plugin,
+        // light::Plugin,
     ));
     app.register_type::<MyHealth>();
     app.add_systems(Startup, setup_game);
+    app.insert_resource(Msaa::Off); // Disable MSAA because it's incompatible with SSAO
     app.run();
 }
 
@@ -64,7 +65,7 @@ fn setup_game(mut commands: Commands) {
     commands.spawn((
         BlueprintInfo::from_path("levels/Scene.glb"), // all we need is a Blueprint info...
         SpawnBlueprint, // and spawnblueprint to tell blenvy to spawn the blueprint now
-        HideUntilReady, // only reveal the level once it is ready
+        HideUntilReady, // only reveal the  level once it is ready
         GameWorldTag,
     ));
 }

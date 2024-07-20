@@ -1,3 +1,7 @@
+use bevy::core_pipeline::bloom::BloomSettings;
+use bevy::core_pipeline::experimental::taa::{TemporalAntiAliasBundle, TemporalAntiAliasPlugin};
+use bevy::core_pipeline::tonemapping::Tonemapping;
+use bevy::pbr::ScreenSpaceAmbientOcclusionBundle;
 use bevy::prelude::*;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
@@ -5,14 +9,14 @@ pub struct Plugin;
 
 impl bevy::prelude::Plugin for Plugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins(PanOrbitCameraPlugin);
+        app.add_plugins((PanOrbitCameraPlugin, TemporalAntiAliasPlugin));
         app.add_systems(Startup, spawn);
     }
 }
 
 fn spawn(mut commands: Commands) {
-    let translation = Vec3::new(0.0, 0.5, 2.0);
-    let focus = Vec3::new(0.0, 0.5, 0.0);
+    let translation = Vec3::new(2.0, 0.5, 5.0);
+    let focus = Vec3::new(0.0, 0.0, 0.0);
     let radius = Some((translation - focus).length());
 
     commands.spawn((
@@ -23,8 +27,14 @@ fn spawn(mut commands: Commands) {
                 far: 5.0,
                 ..default()
             }),
+            tonemapping: Tonemapping::BlenderFilmic,
+            camera: Camera {
+                hdr: true,
+                ..default()
+            },
             ..default()
         },
+        BloomSettings::NATURAL,
         PanOrbitCamera {
             focus,
             radius,
@@ -35,5 +45,7 @@ fn spawn(mut commands: Commands) {
             zoom_smoothness: 0.0,
             ..default()
         },
-    ));
+    ))
+        .insert(ScreenSpaceAmbientOcclusionBundle::default())
+        .insert(TemporalAntiAliasBundle::default());
 }
