@@ -29,6 +29,7 @@ bevy = "0.14.0"
 bevy-inspector-egui = "0.25.1"
 bevy_egui = "0.28.0"
 bevy_panorbit_camera = { version = "0.19.1", features = ["bevy_egui"] }
+blenvy = { git = "https://github.com/kaosat-dev/Blenvy/", rev = "1e262cb7242b6142c99bd473a005bf4cd5483e10" }
 
 [profile.release]
 strip = true

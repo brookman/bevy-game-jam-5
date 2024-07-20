@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use blenvy::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 mod camera;
@@ -6,6 +7,13 @@ mod light;
 mod ui;
 
 static APP_NAME: &str = "Bevy Jam #5";
+
+#[derive(Component, Reflect, Default, Debug)]
+#[reflect(Component)]
+pub struct MyHealth {
+    hp: f32,
+    extra: f32,
+}
 
 fn main() {
     let mut app = App::new();
@@ -27,6 +35,7 @@ fn main() {
         watch_for_changes_override: Some(true),
         ..Default::default()
     };
+
     let default_plugins = DefaultPlugins
         .set(window_plugin)
         .set(log_plugin)
@@ -34,13 +43,28 @@ fn main() {
 
     // -----------------------------------------------------
 
+    let blenvy_plugin = BlenvyPlugin {
+        aabbs: true, //  automatically calculate aabb for the scene/blueprint
+        ..Default::default()
+    };
     app.add_plugins((
         default_plugins,
+        blenvy_plugin,
         WorldInspectorPlugin::new(),
         ui::Plugin,
-        camera::Plugin,
+        // camera::Plugin,
         light::Plugin,
     ));
-
+    app.register_type::<MyHealth>();
+    app.add_systems(Startup, setup_game);
     app.run();
+}
+
+fn setup_game(mut commands: Commands) {
+    commands.spawn((
+        BlueprintInfo::from_path("levels/Scene.glb"), // all we need is a Blueprint info...
+        SpawnBlueprint, // and spawnblueprint to tell blenvy to spawn the blueprint now
+        HideUntilReady, // only reveal the level once it is ready
+        GameWorldTag,
+    ));
 }
