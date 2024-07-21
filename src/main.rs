@@ -1,3 +1,4 @@
+use bevy::asset::AssetMetaCheck;
 use bevy::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use blenvy::{BlenvyPlugin, BlueprintInfo, GameWorldTag, HideUntilReady, SpawnBlueprint};
@@ -35,6 +36,7 @@ fn main() {
     };
     let asset_plugin = AssetPlugin {
         watch_for_changes_override: Some(true),
+        meta_check: AssetMetaCheck::Never,
         ..Default::default()
     };
 
