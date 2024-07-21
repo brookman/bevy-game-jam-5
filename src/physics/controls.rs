@@ -21,7 +21,7 @@ pub fn toggle_physics_debug(
     mut debug_config: ResMut<DebugRenderContext>,
     keycode: Res<ButtonInput<KeyCode>>,
 ) {
-    if keycode.just_pressed(KeyCode::KeyD) {
+    if keycode.just_pressed(KeyCode::F1) {
         debug_config.enabled = !debug_config.enabled;
     }
 }

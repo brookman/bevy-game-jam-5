@@ -3555,31 +3555,6 @@
       "type": "object",
       "typeInfo": "Struct"
     },
-    "bevy_game_jam_5::MyHealth": {
-      "additionalProperties": false,
-      "isComponent": true,
-      "isResource": false,
-      "long_name": "bevy_game_jam_5::MyHealth",
-      "properties": {
-        "extra": {
-          "type": {
-            "$ref": "#/$defs/f32"
-          }
-        },
-        "hp": {
-          "type": {
-            "$ref": "#/$defs/f32"
-          }
-        }
-      },
-      "required": [
-        "hp",
-        "extra"
-      ],
-      "short_name": "MyHealth",
-      "type": "object",
-      "typeInfo": "Struct"
-    },
     "bevy_game_jam_5::physics::physics_replace_proxies::AutoAABBCollider": {
       "isComponent": true,
       "isResource": false,
@@ -12935,11 +12910,11 @@
       "type": "object",
       "typeInfo": "Struct"
     },
-    "blenvy::blueprints::animation::SceneAnimations": {
+    "blenvy::blueprints::animation::InstanceAnimations": {
       "additionalProperties": false,
       "isComponent": true,
       "isResource": false,
-      "long_name": "blenvy::blueprints::animation::SceneAnimations",
+      "long_name": "blenvy::blueprints::animation::InstanceAnimations",
       "properties": {
         "graph": {
           "type": {
@@ -12962,7 +12937,7 @@
         "named_indices",
         "graph"
       ],
-      "short_name": "SceneAnimations",
+      "short_name": "InstanceAnimations",
       "type": "object",
       "typeInfo": "Struct"
     },
@@ -13069,6 +13044,17 @@
         "path"
       ],
       "short_name": "BlueprintInfo",
+      "type": "object",
+      "typeInfo": "Struct"
+    },
+    "blenvy::blueprints::spawn_from_blueprints::BlueprintInstanceDisabled": {
+      "additionalProperties": false,
+      "isComponent": true,
+      "isResource": false,
+      "long_name": "blenvy::blueprints::spawn_from_blueprints::BlueprintInstanceDisabled",
+      "properties": {},
+      "required": [],
+      "short_name": "BlueprintInstanceDisabled",
       "type": "object",
       "typeInfo": "Struct"
     },

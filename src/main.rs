@@ -1,4 +1,3 @@
-use bevy::pbr::DefaultOpaqueRendererMethod;
 use bevy::prelude::*;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use blenvy::{BlenvyPlugin, BlueprintInfo, GameWorldTag, HideUntilReady, SpawnBlueprint};
@@ -11,12 +10,12 @@ mod ui;
 
 static APP_NAME: &str = "Bevy Jam #5";
 
-#[derive(Component, Reflect, Default, Debug)]
-#[reflect(Component)]
-pub struct MyHealth {
-    hp: f32,
-    extra: f32,
-}
+// #[derive(Component, Reflect, Default, Debug)]
+// #[reflect(Component)]
+// pub struct MyHealth {
+//     hp: f32,
+//     extra: f32,
+// }
 
 fn main() {
     let mut app = App::new();
@@ -60,10 +59,10 @@ fn main() {
         physics::Plugin,
         // light::Plugin,
     ));
-    app.register_type::<MyHealth>();
+    // app.register_type::<MyHealth>();
     app.add_systems(Startup, setup_game);
     app.insert_resource(Msaa::Off); // Disable MSAA because it's incompatible with SSAO
-    // app.insert_resource(DefaultOpaqueRendererMethod::deferred());
+                                    // app.insert_resource(DefaultOpaqueRendererMethod::deferred());
     app.run();
 }
 
