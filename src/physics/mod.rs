@@ -5,7 +5,7 @@ use bevy_rapier3d::{
 };
 use blenvy::GltfBlueprintsSet;
 
-use physics_replace_proxies::{AutoAABBCollider, Collider, physics_replace_proxies};
+use physics_replace_proxies::{physics_replace_proxies, AutoAABBCollider, Collider};
 
 use crate::physics::controls::{pause_physics, resume_physics, toggle_physics_debug};
 use crate::state::Game;
