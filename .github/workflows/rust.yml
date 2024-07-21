@@ -18,22 +18,25 @@ jobs:
           toolchain: nightly-2024-07-20
           target: wasm32-unknown-unknown
           components: rustfmt, clippy
-          
+
       # Dependencies
       - name: Install dependencies
         run: sudo apt install libdbus-1-dev pkg-config libudev-dev libasound2-dev
 
+      - name: Populate target directory from cache
+        uses: Leafwing-Studios/cargo-cache@v2
+
       # Rust
-#      - name: Check Rust format
-#        run: rustfmt --edition 2021 --check src/main.rs
-#      - name: Rust code analysis
-#        run: cargo clippy -- -D warnings
-#      - name: Run Rust tests
-#        run: cargo test
+      #      - name: Check Rust format
+      #        run: rustfmt --edition 2021 --check src/main.rs
+      #      - name: Rust code analysis
+      #        run: cargo clippy -- -D warnings
+      #      - name: Run Rust tests
+      #        run: cargo test
       
       # - name: Build (Linux)
       #   run: cargo build -r
-      
+
       - name: Build (WASM)
         run: |
           rm -rf ./wasm-build
@@ -44,11 +47,11 @@ jobs:
           wasm-opt -Oz -o ./wasm-build/bevy-game-jam-5_bg.wasm ./wasm-build/bevy-game-jam-5_bg.wasm
           cp -f index.html ./wasm-build
           cp -rf assets ./wasm-build
-      
+
       - name: Archive WASM build (pages) artifacts
         working-directory: ./wasm-build
         run: tar --dereference -cvf "${{ runner.temp }}/wasm-build.tar" .
-    
+
       - name: Upload WASM build (pages) artifacts
         uses: actions/upload-artifact@v3
         with:
