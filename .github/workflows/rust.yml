@@ -40,8 +40,8 @@ jobs:
       - name: Build (WASM)
         run: |
           rm -rf ./wasm-build
-          cargo install wasm-bindgen-cli --vers 0.2.92
-          cargo install wasm-opt --vers 0.116.1
+          cargo install wasm-bindgen-cli --vers 0.2.92 --force
+          cargo install wasm-opt --vers 0.116.1 --force
           cargo build --profile release-wasm --target wasm32-unknown-unknown
           wasm-bindgen --no-typescript --out-dir ./wasm-build --target web ./target/wasm32-unknown-unknown/release-wasm/bevy-game-jam-5.wasm
           wasm-opt -Oz -o ./wasm-build/bevy-game-jam-5_bg.wasm ./wasm-build/bevy-game-jam-5_bg.wasm
