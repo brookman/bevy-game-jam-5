@@ -47,12 +47,9 @@ fn main() {
 
     // -----------------------------------------------------
 
-    let blenvy_plugin = BlenvyPlugin {
-        ..Default::default()
-    };
     app.add_plugins((
         default_plugins,
-        blenvy_plugin,
+        BlenvyPlugin::default(),
         WorldInspectorPlugin::new(),
         state::Plugin,
         ui::Plugin,
