@@ -1,5 +1,5 @@
 use bevy::core_pipeline::bloom::BloomSettings;
-use bevy::core_pipeline::experimental::taa::{TemporalAntiAliasBundle, TemporalAntiAliasPlugin};
+use bevy::core_pipeline::experimental::taa::TemporalAntiAliasPlugin;
 use bevy::core_pipeline::tonemapping::Tonemapping;
 use bevy::pbr::{ScreenSpaceAmbientOcclusionBundle, ScreenSpaceReflectionsBundle};
 use bevy::prelude::*;
@@ -15,7 +15,7 @@ impl bevy::prelude::Plugin for Plugin {
 }
 
 fn spawn(mut commands: Commands) {
-    let translation = Vec3::new(2.0, 0.5, 5.0);
+    let translation = Vec3::new(2.0, 0.5, 7.0);
     let focus = Vec3::new(0.0, 0.0, 0.0);
     let radius = Some((translation - focus).length());
 
@@ -48,6 +48,6 @@ fn spawn(mut commands: Commands) {
             },
         ))
         .insert(ScreenSpaceAmbientOcclusionBundle::default())
-        .insert(ScreenSpaceReflectionsBundle::default())
-        .insert(TemporalAntiAliasBundle::default());
+        .insert(ScreenSpaceReflectionsBundle::default());
+    // .insert(TemporalAntiAliasBundle::default());
 }
