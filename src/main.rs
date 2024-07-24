@@ -48,7 +48,6 @@ fn main() {
     // -----------------------------------------------------
 
     let blenvy_plugin = BlenvyPlugin {
-        aabbs: true, //  automatically calculate aabb for the scene/blueprint
         ..Default::default()
     };
     app.add_plugins((

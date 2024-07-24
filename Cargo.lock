@@ -1297,7 +1297,7 @@ dependencies = [
 [[package]]
 name = "blenvy"
 version = "0.1.0-alpha.1"
-source = "git+https://github.com/brookman/Blenvy/?rev=b1f7c1b7a2b7e3039b745580f617a6af8522f61b#b1f7c1b7a2b7e3039b745580f617a6af8522f61b"
+source = "git+https://github.com/brookman/Blenvy?rev=faf172d9ebb65da1e5e34ced4805c04a5eb93eee#faf172d9ebb65da1e5e34ced4805c04a5eb93eee"
 dependencies = [
  "bevy",
  "gltf",
