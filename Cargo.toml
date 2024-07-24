@@ -25,7 +25,7 @@ opt-level = 1
 opt-level = 3
 
 [dependencies]
-bevy = "0.14.0"
+bevy = { version = "0.14.0", features = ["webgpu"] }
 bevy-inspector-egui = "0.25.1"
 bevy_egui = "0.28.0"
 bevy_panorbit_camera = { version = "0.19.1", features = ["bevy_egui"] }
